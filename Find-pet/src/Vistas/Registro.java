@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
 public class Registro extends JFrame implements ActionListener{
 	JButton unirse, mascota, buscar, perfil, informacion;
 	JTextField email, telefono;
