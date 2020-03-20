@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class Perfil extends JFrame implements ActionListener{
 	JButton camnom, galeria, mascota, buscar, perfil, informacion, email, contraseña, telefono, salir;
 	JPanel panel;
