@@ -14,21 +14,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Modelos.Mascota;
+
 public class AgregarAdopcion extends JFrame implements ActionListener{
 	JButton agregar, galeria, mascota, buscar, perfil, informacion;
 	JTextField nombre, ubicacion, descripccion;
 	JPanel panel;
 	JLabel etiqueta;
-	ImageIcon camara, find, user, pet, info;
+	ImageIcon camara, find, user, pet, info, foto;
+	TextPrompt nameHolder, adressHolder, descripHolder;
 	int i = 0;
 	String imagen[] = new String[3];
 	public AgregarAdopcion() {
 		
 		panel = new JPanel(null);
 		agregar = new JButton("Agregar a adopcion");
-		nombre = new JTextField("Nombre de la mascota");
-		ubicacion = new JTextField("Ubicacion");
-		descripccion = new JTextField("Descripcion de la mascota");
+		nombre = new JTextField();
+		ubicacion = new JTextField();
+		descripccion = new JTextField();
 		
 		panel.setBackground(Color.white);
 		
@@ -52,18 +55,22 @@ public class AgregarAdopcion extends JFrame implements ActionListener{
 		
 		//ingresar nombre
 		
+		nameHolder = new TextPrompt("Nombre de la mascota", nombre);
 		nombre.setBounds(80, 200, 210, 30);
 		//nombre.setBorder(null);
 		panel.add(nombre);
 		
+		adressHolder = new TextPrompt("Ubicacion", ubicacion);
 		ubicacion.setBounds(80, 240, 210, 30);
 		panel.add(ubicacion);
 		
+		descripHolder = new TextPrompt("Descripcion de la mascota", descripccion);
 		descripccion.setBounds(80, 280, 210, 60);
 		panel.add(descripccion);
 		
 		//imagen de "portada"
-		etiqueta = new JLabel(new ImageIcon("chalino2.jpg") );
+		foto = new ImageIcon("chalino2.jpg");
+		etiqueta = new JLabel( new ImageIcon(foto.getImage().getScaledInstance(500, 155, Image.SCALE_SMOOTH)));
 		etiqueta.setBounds(0, 0, 500, 155);
 		panel.add(etiqueta);
 		
@@ -133,7 +140,17 @@ public class AgregarAdopcion extends JFrame implements ActionListener{
 			buscarImagen();
 		}
 		else if(e.getSource().equals(agregar)) {
-			
+			if(nombre.getText().equals("")) {
+				//se abre modal con mensaje de error
+			}
+			else if(ubicacion.getText().equals("")) {
+				//se abre modal con mensaje de error
+			}else if(descripccion.getText().equals("")) {
+				//se abre modal con mensaje de error
+			}
+			else {
+				Mascota m = new Mascota();
+			}
 		}
 	}
 }
